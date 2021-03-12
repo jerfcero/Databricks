@@ -1,0 +1,9 @@
+today = datetime.datetime.now()
+DD = datetime.timedelta(days=3)
+earlier = today - DD
+earlier_str = earlier.strftime("%Y/%m/%d")
+print (earlier_str)
+
+
+paths1=['wasbs://container@storageaccount.blob.core.windows.net/dir/' + earlier_str + '/*.json']
+df = spark.read.json(paths1)
